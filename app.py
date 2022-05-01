@@ -35,10 +35,11 @@ def upload_file():
 
 @app.route('/', methods=['GET','POST'])
 def test():
-    results = os.listdir('./upload')
+    res = os.listdir('./upload')
     if request.method == 'GET':
         print("GET")
-        return render_template('display.html')
+        print(res)
+        return render_template('display.html',results=res)
     if request.method == 'POST':
         print("POST")
         select = request.form.get('anchor')

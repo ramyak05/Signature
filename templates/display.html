@@ -8,6 +8,7 @@
 
 </script>
 <body>
+    Hi {{results}} pretty
     {% if results %}
     <form method=post enctype=multipart/form-data action="{{url_for('test')}}">
         <select id="anchor" name="anchor">
