@@ -8,30 +8,25 @@
 
 </script>
 <body>
-    Hi {{results}} pretty
     {% if results %}
     <form method=post enctype=multipart/form-data action="{{url_for('test')}}">
-        <select id="anchor" name="anchor">
-            <table>
-                <tbody>
-            
+        <div class="select" id="select-image">
+            <div class="options">
                 {% for img_name in results %}
-                    <tr>
-                        <option value = "{{img_name}}">
-                            <td>{{ img_name }}</td>
-                            <td><img  src="../upload/{{img_name}}" alt="{{ img_name }}"></td>
-                        </option>
-                    </tr>
+                <div class="option" id="{{img_name}}">
+                    <input type="radio" name="anchor" value="{{img_name}}" >
+                    <img src="../upload/{{img_name}}" alt="{{img_name}}">
+                </div>
                 {% endfor %}
-            
-                </tbody>
-            </table>
-        </select>
-            <input type=file name=file>
-            <input type=submit value=Upload>
-        </form>
+            </div>
+        </div>
+        <input type=file name=file>
+        <br>
+        <input type=submit value=Upload>
+    </form>
     {% else %}
         No results :(
     {% endif %}
+    <img src="C:\Users\edula\Signature\upload\download.jpg" alt="">
 </body>
 </html>
