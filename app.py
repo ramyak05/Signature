@@ -4,7 +4,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from model_utils import is_forged
 
-UPLOAD_FOLDER = './upload'
+UPLOAD_FOLDER = './static'
 TEST_FOLDER = './test'
 ALLOWED_EXTENSIONS =['png','jpg']
 app = Flask(__name__) 
@@ -35,7 +35,7 @@ def upload_file():
 
 @app.route('/', methods=['GET','POST'])
 def test():
-    res = os.listdir('./upload')
+    res = os.listdir('./static')
     if request.method == 'GET':
         print("GET")
         print(res)
